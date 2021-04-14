@@ -1,8 +1,9 @@
 package ch.juventus.object;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Address {
+public class Address implements Serializable {
 
   private String street;
   private int number;
@@ -18,12 +19,18 @@ public class Address {
 
   @Override
   public String toString() {
-    return "Address{" +
-        "street='" + street + '\'' +
-        ", number=" + number +
-        ", zip=" + zip +
-        ", city='" + city + '\'' +
-        '}';
+    return "Address{"
+        + "street='"
+        + street
+        + '\''
+        + ", number="
+        + number
+        + ", zip="
+        + zip
+        + ", city='"
+        + city
+        + '\''
+        + '}';
   }
 
   @Override

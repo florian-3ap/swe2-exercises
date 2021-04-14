@@ -1,14 +1,22 @@
 package ch.juventus.object;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Serializable {
 
   private String firstName;
   private String lastName;
   private Address address;
   private int age;
   private boolean hasPet;
+
+  public Person() {}
+
+  public Person(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   public Person(String firstName, String lastName, Address address, int age, boolean hasPet) {
     this.firstName = firstName;
@@ -20,13 +28,20 @@ public class Person {
 
   @Override
   public String toString() {
-    return "Person{" +
-        "firstName='" + firstName + '\'' +
-        ", lastName='" + lastName + '\'' +
-        ", address=" + address +
-        ", age=" + age +
-        ", hasPet=" + hasPet +
-        '}';
+    return "Person{"
+        + "firstName='"
+        + firstName
+        + '\''
+        + ", lastName='"
+        + lastName
+        + '\''
+        + ", address="
+        + address
+        + ", age="
+        + age
+        + ", hasPet="
+        + hasPet
+        + '}';
   }
 
   @Override
