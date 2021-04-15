@@ -5,17 +5,22 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 
 public class JsonExample {
 
   public static void main(String[] args) throws IOException {
     Gson gson = new GsonBuilder().create();
 
-    // Object to JSON
+    // Object to JSON File
     Person person = new Person("Florian", "Näpflin");
-    String personJsonFromObject = gson.toJson(person);
-    System.out.println(personJsonFromObject);
+    try (Writer writer =
+        new FileWriter(
+            "/Users/floriannapflin/Development/workspace/swe2-exercises/src/main/java/ch/juventus/json/person_output.json")) {
+      gson.toJson(person, writer);
+    }
 
     // JSON String to Object
     String personAsJson =
